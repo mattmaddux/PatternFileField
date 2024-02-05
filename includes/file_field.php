@@ -298,11 +298,15 @@ function show_file_field($field, $field_name) {
 
     <!-- Modal -->
     <?php if ($showMediaLibrary) : ?>
-        <div class="my-modal" id="libraryNewModal_<?php echo esc_attr($field_id) ?>">
-            <div class="my-modal-content" style="width:1130px;">
-                <div class="my-modal-title">Pattern Library</div>
-                <div class="my-modal-close my-modal-close-btn btn btn-sm mt-1" onclick="closeLibrary(<?php echo esc_attr($field_id) ?>);"><i class="fa fa-window-close"></i></div>
-                <div class="my-modal-body overflow-auto" style="height: 620px;" id="library_body_<?php echo esc_attr($field_id) ?>">
+        <div class="my-modal !z-50"  id="libraryNewModal_<?php echo esc_attr($field_id) ?>">
+            <div class="my-modal-content" style="margin-top:25px!important;margin-bottom:50px!important;width:80%;height:calc(100vh - 225px);">
+                
+                <div class="my-modal-header">
+                    <div class="my-modal-title">Pattern Library</div>
+                    <div class="my-modal-close my-modal-close-btn btn btn-sm mt-1" onclick="closeLibrary(<?php echo esc_attr($field_id) ?>);"><i class="fa fa-window-close"></i></div>
+                </div>
+                <div class="my-modal-body overflow-auto" style="height:calc(100vh - 300px);" id="library_body_<?php echo esc_attr($field_id) ?>">
+                    
                     <?php foreach ($collection_list as $collection) : ?>
                         <label class="collection-label" for="collection_<?php echo esc_attr($collection->id) ?>_<?php echo esc_attr($field_id) ?>"><?php echo esc_attr($collection->collection_name) ?></label>
                         <div id="collection_<?php echo esc_attr($collection->id) ?>_<?php echo esc_attr($field_id) ?>" class="collection_row">
@@ -324,7 +328,7 @@ function show_file_field($field, $field_name) {
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <div class="my-modal-footer">
+                <div class="my-modal-footer" style="position:fixed;bottom:0;left:0;">
                     <button type="button" class="my-modal-close-btn btn btn-sm btn-secondary" onclick="closeLibrary(<?php echo esc_attr($field_id) ?>);">Cancel</button>
                     <button id="library_apply_button_<?php echo esc_attr($field_id) ?>" type="button" class="btn btn-sm btn-success ms-auto" onclick="applyFromLibrary(<?php echo esc_attr($field_id) ?>)" disabled>Apply</button>
                 </div>
