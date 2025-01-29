@@ -2,7 +2,7 @@
 
 
 include_once('file_types.php');
-
+require_once WP_PLUGIN_DIR . '/pattern-management/includes/class-pattern-event-log.php';
 
 /* Option Defaults */
 $file_field_option_defaults = array(
